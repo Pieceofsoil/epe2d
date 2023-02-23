@@ -131,6 +131,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\colliders\Collision.h" />
     <ClInclude Include="src\bodies\DynamicBody.h" />
     <ClInclude Include="src\colliders\BoxCollider.h" />
     <ClInclude Include="src\colliders\Collider.h" />
@@ -143,6 +144,7 @@
     <ClInclude Include="src\World.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\colliders\Collision.cpp" />
     <ClCompile Include="src\bodies\DynamicBody.cpp" />
     <ClCompile Include="src\colliders\BoxCollider.cpp" />
     <ClCompile Include="src\colliders\Collider.cpp" />

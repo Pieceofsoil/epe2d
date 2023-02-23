@@ -2,6 +2,7 @@
 
 epe::DynamicBody::DynamicBody(Vec2 _position, World &_world) {
 	setPosition(_position);
+	_world.addBody(this);
 }
 
 void epe::DynamicBody::update() {

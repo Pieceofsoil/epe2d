@@ -12,6 +12,8 @@ namespace epe {
 		Vec2 acceleration = Vec2(0, 0);
 		Vec2 velocity = Vec2(0, 0);
 
+		World world;
+
 		bool useDrag = true;
 		bool useGravity = true;
 

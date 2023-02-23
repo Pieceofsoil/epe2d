@@ -5,6 +5,11 @@ epe::Vec2::Vec2(float _x, float _y) {
 	y = _y;
 }
 
+epe::Vec2::Vec2() {
+	x = 0;
+	y = 0;
+}
+
 epe::Vec2 epe::Vec2::operator*(double _s)
 {
 	return Vec2(x * _s, y * _s);

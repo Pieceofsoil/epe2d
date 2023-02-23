@@ -13,7 +13,7 @@ int main()
     epe::World world = epe::World();
 
     //Setting up the static body (floor)
-    epe::StaticBody floor(epe::Vec2(WIN_WIDTH / 2 - 128, WIN_HEIGHT / 3 * 2));
+    epe::StaticBody floor(epe::Vec2(WIN_WIDTH / 2 - 128, WIN_HEIGHT / 3 * 2), world);
     epe::BoxCollider floorCollider(epe::Vec2(256, 32));
     floor.attachCollider(floorCollider);
 
