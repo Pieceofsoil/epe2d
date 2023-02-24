@@ -7,7 +7,7 @@ namespace epe {
 	class Body : public Transformable
 	{
 	public:
-		Collider collider;
+		Collider* collider = nullptr;
 		Body();
 		void attachCollider(Collider& _collider);
 	};

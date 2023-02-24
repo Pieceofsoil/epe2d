@@ -14,5 +14,7 @@ namespace epe {
 
 		BoxCollider(Vec2 _size);
 		BoxCollider(Vec2 _position, Vec2 _size);
+
+		void checkCollision() const override;
 	};
 }

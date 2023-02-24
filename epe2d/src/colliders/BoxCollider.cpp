@@ -17,3 +17,7 @@ epe::Vec2 epe::BoxCollider::getSize() {
 void epe::BoxCollider::setSize(Vec2 _size) {
 	size = _size;
 }
+
+void epe::BoxCollider::checkCollision() const {
+
+}

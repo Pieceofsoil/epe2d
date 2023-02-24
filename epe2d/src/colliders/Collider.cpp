@@ -3,3 +3,7 @@
 epe::Collider::Collider() {
 
 }
+
+void epe::Collider::checkCollision() const{
+
+}
