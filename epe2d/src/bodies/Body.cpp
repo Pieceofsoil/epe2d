@@ -1,5 +1,10 @@
 #include "Body.h"
 
+#include<iostream>
+#include<string>
+
+#include<src/colliders/Collider.h>
+
 epe::Body::Body() {
 	setPosition(Vec2(0, 0));
 }
@@ -7,4 +12,9 @@ epe::Body::Body() {
 void epe::Body::attachCollider(Collider& _collider) {
 	collider = &_collider;
 	collider->setPosition(getPosition());
+}
+
+epe::Collider& epe::Body::getCollider() {
+	std::cout << "you getting a ref to the collider\n";
+	return *collider;
 }

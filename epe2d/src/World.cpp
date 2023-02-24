@@ -1,5 +1,7 @@
 #include"World.h"
 
+#include<src/bodies/Body.h>
+
 epe::World::World() {
 	gravity = Vec2(0, 9.81f);
 }

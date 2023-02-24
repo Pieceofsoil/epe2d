@@ -1,12 +1,12 @@
 #pragma once
 
 #include<vector>
-
 #include<src/epeMath/Vec2.h>
 
-#include<src/bodies/Body.h>
-
 namespace epe {
+
+	class Body; //Forward declaration for epe::Body
+
 	class World {
 	public:
 		Vec2 gravity = Vec2(0, 0);

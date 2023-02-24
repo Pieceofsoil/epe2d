@@ -4,6 +4,9 @@
 #include<src/Transformable.h>
 
 namespace epe {
+
+	class World; //Forward declaration for epe::World
+
 	class Collider : public Transformable
 	{
 	public:
