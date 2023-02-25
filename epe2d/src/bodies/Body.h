@@ -12,6 +12,7 @@ namespace epe {
 	public:
 		Collider* collider = nullptr;
 		Body();
+		virtual ~Body() = default;
 		void attachCollider(Collider& _collider);
 		Collider* getCollider();
 	};

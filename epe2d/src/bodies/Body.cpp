@@ -11,6 +11,7 @@ epe::Body::Body() {
 
 void epe::Body::attachCollider(Collider& _collider) {
 	collider = &_collider;
+	collider->body = this;
 	collider->setPosition(getPosition());
 }
 

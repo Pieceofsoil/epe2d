@@ -22,9 +22,9 @@ void epe::BoxCollider::setSize(Vec2 _size) {
 
 void epe::BoxCollider::checkCollision(World &_world) {
 	std::vector<Collider*> allColliders;
-	for (Body* body : _world.getBodies()) {
-		if (body->getCollider() == this) continue;
-		allColliders.push_back(body->getCollider());
+	for (Body* _body : _world.getBodies()) {
+		if (_body->getCollider() == this) continue;
+		allColliders.push_back(_body->getCollider());
 	}
 
 	std::vector<BoxCollider*> allBoxColliders;
@@ -45,14 +45,31 @@ void epe::BoxCollider::checkCollision(World &_world) {
 		float wi = allBoxColliders[i]->getSize().x;
 		float hi = allBoxColliders[i]->getSize().y;
 
-		//std::cout << (x < xi + wi) << " " << (x + w > xi) << " " << (y < yi + hi) << " " << (y + h > yi) << '\n';
-
 		if (x < xi + wi && x + w > xi && y < yi + hi && y + h > yi) { // COLLISION DETECTED
-			
-		}
+			float overlapX = 0;
+			float overlapY = 0;
 
-		/*std::cout << "This collider: " << this << "  Pos: " << getPosition().x << ", " << getPosition().y << " | Size: " << getSize().x << ", " << getSize().y << '\n';
-		std::cout << "Other collider: " << allBoxColliders[i] << "  Pos: " << allBoxColliders[i]->getPosition().x << ", " << allBoxColliders[i]->getPosition().y 
-			<< " | Size: " << allBoxColliders[i]->getSize().x << ", " << allBoxColliders[i]->getSize().y << '\n';*/
+			x < xi ? overlapX = x + w - xi : overlapX = xi + wi - x;
+			y < yi ? overlapY = y + h - yi : overlapY = yi + hi - y;
+
+			//Resolve collision
+
+			DynamicBody* dbody = dynamic_cast<DynamicBody*>(body);
+
+			if (overlapX < overlapY)
+			{
+				if (x < xi)
+					dbody->addAcceleration(Vec2(-overlapX * 10, 0));
+				else
+					dbody->addAcceleration(Vec2(overlapX * 10, 0));
+			}
+			else
+			{
+				if (y < yi)
+					dbody->addAcceleration(Vec2(0, -overlapY * 10));
+				else
+					dbody->addAcceleration(Vec2(0, overlapY * 10));
+			}
+		}
 	}
 }

@@ -3,6 +3,7 @@
 #include<src/epeMath/Vec2.h>
 #include<src/colliders/Collider.h>
 #include<src/bodies/Body.h>
+#include<src/bodies/DynamicBody.h>
 #include<src/World.h>
 
 namespace epe {
