@@ -6,6 +6,6 @@ epe::Collider::Collider() {
 
 }
 
-void epe::Collider::checkCollision() const{
+void epe::Collider::checkCollision(World &_world){
 
 }

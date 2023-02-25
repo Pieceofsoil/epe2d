@@ -12,7 +12,7 @@ namespace epe {
 	public:
 		Collider();
 		virtual ~Collider() = default;
-		virtual void checkCollision() const = 0;
+		virtual void checkCollision(World &_world) = 0;
 	};
 }
 

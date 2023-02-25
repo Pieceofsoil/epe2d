@@ -15,7 +15,7 @@ namespace epe {
 		World();
 		World(Vec2 _gravity, float _drag);
 
-		void addBody(Body* _body);
+		void addBody(Body &_body);
 		std::vector<Body*> getBodies();
 	private:
 		std::vector<Body*> bodies;

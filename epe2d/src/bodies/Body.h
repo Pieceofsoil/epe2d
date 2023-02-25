@@ -13,7 +13,7 @@ namespace epe {
 		Collider* collider = nullptr;
 		Body();
 		void attachCollider(Collider& _collider);
-		Collider& getCollider();
+		Collider* getCollider();
 	};
 }
 

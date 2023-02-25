@@ -1,5 +1,7 @@
 #include"World.h"
 
+#include<iostream>
+
 #include<src/bodies/Body.h>
 
 epe::World::World() {
@@ -11,8 +13,8 @@ epe::World::World(Vec2 _gravity, float _drag) {
 	drag = _drag;
 }
 
-void epe::World::addBody(Body* _body) {
-	bodies.push_back(_body);
+void epe::World::addBody(Body &_body) {
+	bodies.push_back(&_body);
 }
 
 std::vector<epe::Body*> epe::World::getBodies() {

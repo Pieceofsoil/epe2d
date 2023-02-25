@@ -1,14 +1,21 @@
 #include "DynamicBody.h"
 
+#include<src/colliders/Collider.h>
+
 epe::DynamicBody::DynamicBody(Vec2 _position, World &_world) {
 	setPosition(_position);
-	_world.addBody(this);
+	_world.addBody(*this);
+	world = &_world;
 }
 
 void epe::DynamicBody::update() {
-	if(useGravity) addAcceleration(world.gravity); //Gravity
-	if(useDrag) addAcceleration(-(acceleration * world.drag)); //Drag
-	//Acceleration(Vec2(4, 0));
+
+	collider->setPosition(getPosition()); //Make collider follow the body
+
+	if(useGravity) addAcceleration(world->gravity); //Gravity
+	if(useDrag) addAcceleration(-(acceleration * world->drag)); //Drag
+	
+	if (collider != nullptr) collider->checkCollision(*world); //Collision check
 
 	move();
 }

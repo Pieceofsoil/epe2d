@@ -2,6 +2,8 @@
 
 #include<src/epeMath/Vec2.h>
 #include<src/colliders/Collider.h>
+#include<src/bodies/Body.h>
+#include<src/World.h>
 
 namespace epe {
 	class BoxCollider : public Collider
@@ -15,6 +17,6 @@ namespace epe {
 		BoxCollider(Vec2 _size);
 		BoxCollider(Vec2 _position, Vec2 _size);
 
-		void checkCollision() const override;
+		void checkCollision(World &_world) override;
 	};
 }

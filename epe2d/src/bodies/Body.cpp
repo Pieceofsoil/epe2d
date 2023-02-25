@@ -14,7 +14,6 @@ void epe::Body::attachCollider(Collider& _collider) {
 	collider->setPosition(getPosition());
 }
 
-epe::Collider& epe::Body::getCollider() {
-	std::cout << "you getting a ref to the collider\n";
-	return *collider;
+epe::Collider* epe::Body::getCollider() {
+	return collider;
 }
