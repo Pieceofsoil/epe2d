@@ -46,12 +46,9 @@ int main()
                 window.close();
         }
 
-        //Print log information
-        //std::cout << box.velocity.x << " " << box.velocity.y << '\n';
-
         //Calculate physics
 
-        box.update();
+        world.update();
 
         //Calculate graphics
 
