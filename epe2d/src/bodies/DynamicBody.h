@@ -9,6 +9,7 @@ namespace epe {
 	{
 	public:
 		float mass = 0;
+		float restitution = 0;
 		Vec2 acceleration = Vec2(0, 0);
 		Vec2 velocity = Vec2(0, 0);
 
@@ -22,6 +23,7 @@ namespace epe {
 		void update() override;
 		void addAcceleration(Vec2 _acceleration);
 		void addImpulse(Vec2 _impusle);
+		void addVelocity(Vec2 _direction);
 	private:
 		void move();
 	};

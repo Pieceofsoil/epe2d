@@ -1,6 +1,7 @@
 #pragma once
+#include<string>
 
-namespace epe {
+namespace epe { 
 	class Vec2 {
 	public:
 		float x = 0;
@@ -11,10 +12,11 @@ namespace epe {
 
 		Vec2 operator*(double _s);
 		Vec2 operator/(double _s);
-		Vec2 operator+(Vec2& _v);
-		Vec2 operator-(Vec2& _v);
+		Vec2 operator+(const Vec2& _v);
+		Vec2 operator-(const Vec2& _v);
 		Vec2 operator-();
-		Vec2& operator+=(Vec2& _v);
-		Vec2& operator-=(Vec2& _v);
+		Vec2& operator+=(const Vec2& _v);
+		Vec2& operator-=(const Vec2& _v);
+		operator std::string() const;
 	};
 }

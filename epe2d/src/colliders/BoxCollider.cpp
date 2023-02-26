@@ -39,36 +39,50 @@ void epe::BoxCollider::checkCollision(World &_world) {
 	float w = getSize().x;
 	float h = getSize().y;
 	
+	DynamicBody* dbody = dynamic_cast<DynamicBody*>(body);
+
 	for (int i = 0; i < allBoxColliders.size(); i++) {
 		float xi = allBoxColliders[i]->getPosition().x;
 		float yi = allBoxColliders[i]->getPosition().y;
 		float wi = allBoxColliders[i]->getSize().x;
 		float hi = allBoxColliders[i]->getSize().y;
 
-		if (x < xi + wi && x + w > xi && y < yi + hi && y + h > yi) { // COLLISION DETECTED
-			float overlapX = 0;
-			float overlapY = 0;
+		std::string log = "";
+		log += "Acc: ";
+		log += dbody->acceleration.operator std::string();
+		log += '\n';
+		log += "Vel: ";
+		log += dbody->velocity.operator std::string();
+		log += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+		std::cout << log;
 
-			x < xi ? overlapX = x + w - xi : overlapX = xi + wi - x;
-			y < yi ? overlapY = y + h - yi : overlapY = yi + hi - y;
+		if (x < xi + wi && x + w > xi && y < yi + hi && y + h > yi) { // COLLISION DETECTED
+			float overlapX = x < xi ? overlapX = x + w - xi : overlapX = xi + wi - x;
+			float overlapY = y < yi ? overlapY = y + h - yi : overlapY = yi + hi - y;;
 
 			//Resolve collision
 
-			DynamicBody* dbody = dynamic_cast<DynamicBody*>(body);
-
 			if (overlapX < overlapY)
 			{
-				if (x < xi)
-					dbody->addAcceleration(Vec2(-overlapX * 10, 0));
-				else
-					dbody->addAcceleration(Vec2(overlapX * 10, 0));
+				if (x < xi) { //left side
+					dbody->addVelocity(Vec2(-overlapX * 2, 0));
+					dbody->velocity = Vec2(0, 0);
+				}
+				else { //right side
+					dbody->addVelocity(Vec2(overlapX * 2, 0));
+					dbody->velocity = Vec2(0, 0);
+				}
 			}
 			else
 			{
-				if (y < yi)
-					dbody->addAcceleration(Vec2(0, -overlapY * 10));
-				else
-					dbody->addAcceleration(Vec2(0, overlapY * 10));
+				if (y < yi) { //top side
+					dbody->addVelocity(Vec2(0, -overlapY * 2));
+					dbody->velocity = Vec2(0, 0);
+				}
+				else { //bottom side
+					dbody->addVelocity(Vec2(0, overlapY * 2));
+					dbody->velocity = Vec2(0, 0);
+				}
 			}
 		}
 	}

@@ -26,8 +26,12 @@ void epe::DynamicBody::addAcceleration(Vec2 _acceleration) {
 }
 
 void epe::DynamicBody::addImpulse(Vec2 _impulse) {
-	Vec2 _imp = _impulse * 0.01f;
+	Vec2 _imp = _impulse * 0.00001f;
 	velocity += _imp;
+}
+
+void epe::DynamicBody::addVelocity(Vec2 _velocity) {
+	setPosition(getPosition() + _velocity);
 }
 
 void epe::DynamicBody::move() {
