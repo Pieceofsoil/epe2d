@@ -13,8 +13,8 @@ int main()
     epe::World world = epe::World();
 
     //Setting up the static body (floor)
-    epe::StaticBody floor(epe::Vec2(WIN_WIDTH / 2 - 350, WIN_HEIGHT / 3 * 2), world);
-    epe::BoxCollider floorCollider(epe::Vec2(700, 32));
+    epe::StaticBody floor(epe::Vec2(WIN_WIDTH / 2 - 200, WIN_HEIGHT / 3 * 2), world);
+    epe::BoxCollider floorCollider(epe::Vec2(400, 32));
     floor.attachCollider(floorCollider);
 
     //Graphics for the floor
@@ -34,7 +34,7 @@ int main()
     sf::RectangleShape boxShape(sf::Vector2f(boxCollider.getSize().x, boxCollider.getSize().y));
     boxShape.setFillColor(sf::Color::Green);
 
-    box.addImpulse(epe::Vec2(0.5, -2) * 5000);
+    box.addForce(epe::Vec2(0.5, -2) * 5000);
 
     int iteration = 0;
     while (window.isOpen())
@@ -45,8 +45,6 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-
-        //Calculate physics
 
         world.update();
 

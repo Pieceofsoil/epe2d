@@ -1,6 +1,7 @@
 #pragma once
 
 #include<vector>
+#include<chrono>
 #include<src/epeMath/Vec2.h>
 
 namespace epe {

@@ -15,6 +15,9 @@ epe::World::World(Vec2 _gravity, float _drag) {
 }
 
 void epe::World::update() {
+
+
+
 	for (Body* body : getBodies()) {
 		if (DynamicBody* dymamicBody = dynamic_cast<DynamicBody*>(body)) {
 			dymamicBody->update();

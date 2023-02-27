@@ -47,41 +47,42 @@ void epe::BoxCollider::checkCollision(World &_world) {
 		float wi = allBoxColliders[i]->getSize().x;
 		float hi = allBoxColliders[i]->getSize().y;
 
-		std::string log = "";
-		log += "Acc: ";
-		log += dbody->acceleration.operator std::string();
-		log += '\n';
-		log += "Vel: ";
-		log += dbody->velocity.operator std::string();
-		log += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-		std::cout << log;
+		//std::string log = "";
+		//log += "Acc: ";
+		//log += dbody->acceleration.operator std::string();
+		//log += '\n';
+		//log += "Vel: ";
+		//log += dbody->velocity.operator std::string();
+		//log += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+		//std::cout << log;
 
 		if (x < xi + wi && x + w > xi && y < yi + hi && y + h > yi) { // COLLISION DETECTED
 			float overlapX = x < xi ? overlapX = x + w - xi : overlapX = xi + wi - x;
-			float overlapY = y < yi ? overlapY = y + h - yi : overlapY = yi + hi - y;;
+			float overlapY = y < yi ? overlapY = y + h - yi : overlapY = yi + hi - y;
 
 			//Resolve collision
 
+			//Collision with StaticBody with BoxCollider
 			if (overlapX < overlapY)
 			{
 				if (x < xi) { //left side
 					dbody->addVelocity(Vec2(-overlapX * 2, 0));
-					dbody->velocity = Vec2(0, 0);
+					dbody->velocity = Vec2(0, dbody->velocity.y);
 				}
 				else { //right side
 					dbody->addVelocity(Vec2(overlapX * 2, 0));
-					dbody->velocity = Vec2(0, 0);
+					dbody->velocity = Vec2(0, dbody->velocity.y);
 				}
 			}
 			else
 			{
 				if (y < yi) { //top side
 					dbody->addVelocity(Vec2(0, -overlapY * 2));
-					dbody->velocity = Vec2(0, 0);
+					dbody->velocity = Vec2(dbody->velocity.x, 0);
 				}
 				else { //bottom side
 					dbody->addVelocity(Vec2(0, overlapY * 2));
-					dbody->velocity = Vec2(0, 0);
+					dbody->velocity = Vec2(dbody->velocity.x, 0);
 				}
 			}
 		}
