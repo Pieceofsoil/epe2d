@@ -7,5 +7,5 @@ Physics engine which I develop just for educational purposes. Free to commercial
 - Basic RigidBody simulation without rotation
 - AABB collision
 - Compatibility with SFML
-- 64x processor architecture support
+- x64 processor architecture support
 - Very easy to use!
